@@ -5,8 +5,8 @@ A Terraform module to create an S3 bucket for, and enable, Cloudtrail logging.
 
 Input Variables
 ---------------
+- `account_id` - AWS Account ID
 - `bucket_name` - Name of the S3 bucket
-- `bucket_path` - Path within the bucket to store logs (excluding trailing '/')
 
 
 Usage
@@ -16,8 +16,8 @@ Usage
 module "cloudtrail" {
   source = "github.com/klibby/tf_cloudtrail"
 
+  account_id = "123456789"
   bucket_name = "my-s3-bucket"
-  bucket_path = "CloudtrailLogs"
 
 }
 ```

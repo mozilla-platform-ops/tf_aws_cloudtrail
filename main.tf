@@ -1,17 +1,17 @@
+variable "account_id" {
+    description = "AWS Account ID"
+}
+
 variable "bucket_name" {
     description = "Name of S3 bucket in which to store Cloudtrail logs"
 }
 
-variable "bucket_path" {
-    description = "Optional path within the bucket (excluding trailing '/*')"
-    default = "CloudtrailLogs"
-}
 
 resource "template_file" "logging_bucket_policy" {
     template = "${file("${path.module}/cloudtrail_bucket.json.tmpl")}"
     vars {
+        account_id = "${var.account_id}"
         bucket_name = "${var.bucket_name}"
-        bucket_path = "${var.bucket_path}"
     }
 }
 
