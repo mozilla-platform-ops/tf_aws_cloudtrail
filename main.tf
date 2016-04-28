@@ -34,11 +34,11 @@ resource "aws_cloudtrail" "cloudtrail" {
     }
 }
 
-outpuc "bucket_id" {
+output "bucket_id" {
     value = "${aws_s3_bucket.logging_bucket.id}"
 }
 
-outpuc "bucket_arn" {
+output "bucket_arn" {
     value = "${aws_s3_bucket.logging_bucket.arn}"
 }
 
