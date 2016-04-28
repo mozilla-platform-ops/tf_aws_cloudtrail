@@ -8,7 +8,7 @@ variable "bucket_path" {
 }
 
 resource "template_file" "logging_bucket_policy" {
-    template = "${file("cloudtrail_bucket.json.tmpl")}"
+    template = "${file("${path.module}/cloudtrail_bucket.json.tmpl")}"
     vars {
         bucket_name = "${var.bucket_name}"
         bucket_path = "${var.bucket_path}"
