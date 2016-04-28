@@ -1,0 +1,2 @@
+region = "us-west-2"
+profile = "my_aws_profile_name"
