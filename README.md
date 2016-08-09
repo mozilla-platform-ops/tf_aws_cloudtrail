@@ -14,7 +14,7 @@ Usage
 
 ```js
 module "cloudtrail" {
-  source = "github.com/klibby/tf_cloudtrail"
+  source = "github.com/mozilla-platform-ops/tf_cloudtrail"
 
   account_id = "123456789"
   bucket_name = "my-s3-bucket"
