@@ -7,7 +7,7 @@ variable "bucket_name" {
 }
 
 
-resource "template_file" "logging_bucket_policy" {
+data "template_file" "logging_bucket_policy" {
     template = "${file("${path.module}/cloudtrail_bucket.json.tmpl")}"
     vars {
         account_id = "${var.account_id}"
@@ -18,7 +18,7 @@ resource "template_file" "logging_bucket_policy" {
 resource "aws_s3_bucket" "logging_bucket" {
     bucket = "${var.bucket_name}"
     acl = "private"
-    policy = "${template_file.logging_bucket_policy.rendered}"
+    policy = "${data.template_file.logging_bucket_policy.rendered}"
     tags {
         Name = "cloudtrail bucket"
     }
